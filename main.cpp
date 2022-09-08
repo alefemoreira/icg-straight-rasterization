@@ -1,9 +1,12 @@
 #include "main.h"
+#include <cmath>
+#include <iostream>
 
- class Pixel {
+class Pixel {
   private:
      int x;
      int y;
+     int offset;
      unsigned char *r, *g, *b, *a;
 
   public:
@@ -11,24 +14,16 @@
       int offset = 4 * x + IMAGE_WIDTH * 4 * y;
       this->x = x;
       this->y = y;
-      this->r = &FBptr[offset + 0];
-      this->g = &FBptr[offset + 1];
-      this->b = &FBptr[offset + 2];
-      this->a = &FBptr[offset + 3];
-      this->*r = 255;
-      this->*g = 0;
-      this->*b = 255;
-      this->*a = 255;
+      this->offset = offset;
+      FBptr[offset + 0] = 255; //r
+      FBptr[offset + 1] = 255; //g
+      FBptr[offset + 2] = 255; //b
+      FBptr[offset + 3] = 255; //a
     }
 
-    setColor(unsigned char r, unsigned char g, unsigned char b, unsigned char a) {
-      this->*r = r;
-      this->*g = g;
-      this->*b = b;
-      this->*a = a;
-    }
-
- };
+    int getX() { return this->x; }
+    int getY() { return this->y; }
+};
 
 void DesenhaPixels(void) {
   // Escreve um pixel vermelho na posicao (0,0) da tela:
@@ -53,12 +48,68 @@ void DesenhaLinha(void) {
     new Pixel(i, i);
   }
 }
+
+void drawLine(Pixel &origin, Pixel &destiny) {
+  
+  float deltay = (destiny.getY() - origin.getY());
+  float deltax = (destiny.getX() - origin.getX());
+  float m =  deltay / deltax;
+  float d = origin.getY() - m * origin.getX();
+  std::cout << m << '\n';
+  int x = origin.getX();
+  int y = round(origin.getX() * m + d);
+  float e = m * x + d - y;
+
+  if (m > 0 && m < 1) {
+    while (x <= destiny.getX()) {
+      new Pixel(x, y);
+      x++;
+      e += m;
+      if (e >= 0.5) {
+        y++;
+        e--;
+      }
+    }
+  } else {
+    d = origin.getX() - m * origin.getY();
+    m = deltax / deltay;
+    x = round(origin.getY() * m + d);
+    y = origin.getY();
+    e = m * y + d - x;
+
+    while (y <= destiny.getY()) {
+      new Pixel(x, y);
+      y++;
+      e += m;
+      if (e >= 0.5) {
+        x++;
+        e--;
+      }
+    }
+  }
+
+
+}
 //-----------------------------------------------------------------------------
 void MyGlDraw(void)
 {
   //*************************************************************************
-  DesenhaLinha();
-  DesenhaPixels();
+  // Pixel pixel0 = new Pixel(0,0);
+  // Pixel pixel1 = new Pixel(0,1);
+  // Pixel pixel2 = new Pixel(0,2);
+  Pixel origin {0, 0};
+  Pixel destiny {50, 40};
+  drawLine(origin, destiny);
+
+  Pixel origin1 {0, 0};
+  Pixel destiny1 {50, 60};
+  drawLine(origin1, destiny1);
+
+  Pixel origin2 {0, 0};
+  Pixel destiny2 {50, 50};
+  drawLine(origin2, destiny2);
+  // DesenhaLinha();
+  // DesenhaPixels();
   //*************************************************************************
 
 }
