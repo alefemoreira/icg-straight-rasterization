@@ -58,7 +58,7 @@ void drawLine(Pixel &origin, Pixel &destiny) {
   float m =  deltay / deltax; // Coeficiente angular
   float d = origin.getY() - m * origin.getX(); // Coeficiente linear
 
-  // std::cout << m << '\n';
+  std::cout << m << '\n';
 
   // Coordenadas x e y do pixel
   int x = origin.getX();
@@ -104,10 +104,10 @@ void drawLine(Pixel &origin, Pixel &destiny) {
   }  else if(m < 0 && m > -1) {
     // std::cout << m << '\n';
     d = origin.getY() - m * origin.getX();
-    m = deltay / deltax;
+    m = deltay / deltax;    
     x = origin.getX();
     y = round(x * m + d);
-    e = (m * x + d - y ); // mudança no calculo do erro(inversão do sinal de y)
+    e = (m * x + d - y );// mudança no calculo do erro(inversão do sinal de y)
     // std::cout << e << '\n';
 
 
@@ -115,10 +115,10 @@ void drawLine(Pixel &origin, Pixel &destiny) {
     // std::cout << m << '\n';
       std::cout << e << ' '  << x << ' ' << y << '\n';
       new Pixel(x, y);
-      y--;
+      x++;
       e -= m;
       if (e >= 0.5) {
-        x++;
+        y--;
         e--;
       }
     }
@@ -162,7 +162,7 @@ void MyGlDraw(void)
   Pixel destiny6 {200, 50};
   drawLine(origin6, destiny6);
 
-  //***************************************************
+  // //***************************************************
 
   Pixel origin7 {0, 511};
   Pixel destiny7 {200, 511};
@@ -172,17 +172,17 @@ void MyGlDraw(void)
   Pixel destiny8 {0, 511};
   drawLine(origin8, destiny8);
 
-  Pixel origin9 {0, 512};
-  Pixel destiny9 {200, 312};
+  Pixel origin9 {0, 511};
+  Pixel destiny9 {200, 350};
   drawLine(origin9, destiny9);
 
-  // Pixel origin9 {0, 512};
-  // Pixel destiny9 {300, 424};
-  // drawLine(origin9, destiny9);
+  Pixel origin10 {0, 511};
+  Pixel destiny10 {300, 450};
+  drawLine(origin10, destiny10);
 
-  //   Pixel origin10 {0, 512};
-  // Pixel destiny10 {300, 324};
-  // drawLine(origin10, destiny10);
+  Pixel origin11 {0, 511};
+  Pixel destiny11 {300, 400};
+  drawLine(origin11, destiny11);
 
 
   //*************************************************************************
