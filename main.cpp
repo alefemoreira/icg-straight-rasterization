@@ -60,7 +60,15 @@ void drawLine(Pixel &origin, Pixel &destiny) {
   int y = round(origin.getX() * m + d);
   float e = m * x + d - y;
 
-  if (m > 0 && m < 1) {
+  if (deltax == 0) {
+    for (int i = origin.getY(); i < destiny.getY(); i++) {
+      new Pixel(origin.getX(), i);
+    }
+  } else if (deltay == 0) {
+    for (int i = origin.getX(); i < destiny.getX(); i++) {
+      new Pixel(i, origin.getY());
+    }
+  } else if (m > 0 && m < 1) {
     while (x <= destiny.getX()) {
       new Pixel(x, y);
       x++;
@@ -108,8 +116,14 @@ void MyGlDraw(void)
   Pixel origin2 {0, 0};
   Pixel destiny2 {50, 50};
   drawLine(origin2, destiny2);
-  // DesenhaLinha();
-  // DesenhaPixels();
+  
+  Pixel origin3 {0, 0};
+  Pixel destiny3 {50, 0};
+  drawLine(origin3, destiny3);
+
+  Pixel origin4 {0, 0};
+  Pixel destiny4 {0, 50};
+  drawLine(origin4, destiny4);
   //*************************************************************************
 
 }
