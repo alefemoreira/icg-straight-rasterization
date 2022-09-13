@@ -1,8 +1,6 @@
 #ifndef _PIXEL_
 #define _PIXEL_
 
-// #include "definitions.h"
-
 class Pixel {
   private:
      int x;

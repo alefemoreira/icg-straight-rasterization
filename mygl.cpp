@@ -1,8 +1,10 @@
 #include "mygl.h"
-#include "Pixel.h"
-#include "Triangle.h"
+// #include "pixel.h"
+#include "pixel.cpp"
+// #include "triangle.h"
+#include "triangle.cpp"
+// #include "pipx.cpp"
 #include <cmath>
-#include "definitions.h"
 
 void drawLine(Pixel &start, Pixel &end) {
 

@@ -1,4 +1,4 @@
-#include "Pixel.h"
+#include "pixel.h"
 #include "definitions.h"
 
 

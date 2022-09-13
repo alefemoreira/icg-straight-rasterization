@@ -1,9 +1,7 @@
 #ifndef _TRIANGLE_
 #define _TRIANGLE_
 
-#include "Pixel.h"
-// #include "mygl.h"
-
+#include "pixel.h"
 
 class Triangle {
   private:
