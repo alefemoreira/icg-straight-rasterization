@@ -49,16 +49,27 @@ void DesenhaLinha(void) {
   }
 }
 
-void drawLine(Pixel &origin, Pixel &destiny) {
+void drawLine(Pixel &start, Pixel &end) {
+
+  Pixel origin = start;
+  Pixel destiny = end;
   
   // Calculando delta x e delta y
   float deltay = (destiny.getY() - origin.getY());
   float deltax = (destiny.getX() - origin.getX());
 
+  if ((deltax < 0 && deltay < 0) || (deltax < 0 && deltay >= 0)) {
+    origin = end;
+    destiny = start;
+
+    deltay = (destiny.getY() - origin.getY());
+    deltax = (destiny.getX() - origin.getX());
+  }
+
   float m =  deltay / deltax; // Coeficiente angular
   float d = origin.getY() - m * origin.getX(); // Coeficiente linear
 
-  std::cout << m << '\n';
+  // std::cout << m << '\n';
 
   // Coordenadas x e y do pixel
   int x = origin.getX();
@@ -69,7 +80,7 @@ void drawLine(Pixel &origin, Pixel &destiny) {
   if (deltax == 0) {// Reta horientada na vertical
     for (int i = origin.getY(); i < destiny.getY(); i++) {
       new Pixel(origin.getX(), i);
-    std::cout << origin.getX() << " " << i << '\n';
+    // std::cout << origin.getX() << " " << i << '\n';
     }
   } else if (deltay == 0) {// Reta orientada na horizontal
     for (int i = origin.getX(); i < destiny.getX(); i++) {
@@ -103,8 +114,6 @@ void drawLine(Pixel &origin, Pixel &destiny) {
     }
   }  else if(m < 0 && m > -1) {
     // std::cout << m << '\n';
-    d = origin.getY() - m * origin.getX();
-    m = deltay / deltax;    
     x = origin.getX();
     y = round(x * m + d);
     e = (m * x + d - y );// mudança no calculo do erro(inversão do sinal de y)
@@ -112,8 +121,6 @@ void drawLine(Pixel &origin, Pixel &destiny) {
 
 
     while (x <= destiny.getX() && y >= destiny.getY()) {
-    // std::cout << m << '\n';
-      std::cout << e << ' '  << x << ' ' << y << '\n';
       new Pixel(x, y);
       x++;
       e -= m;
@@ -122,6 +129,37 @@ void drawLine(Pixel &origin, Pixel &destiny) {
         e--;
       }
     }
+  } else { // m <= 1
+    m = deltax / deltay;
+
+   d = origin.getX() - m * origin.getY();
+    x = round(origin.getY() * m + d);
+    y = origin.getY();
+    e = m * y + d - x; // mudança no calculo do erro(inversão entre x e y)
+    std::cout << "m: " << m << '\n';
+
+    std::cout << "d: " << d << '\n';
+    std::cout << "e: " << e << '\n';
+    std::cout << "x: " << x << '\n';
+    std::cout << "y: " << y << '\n';
+    while (y >= destiny.getY()) {
+      
+    std::cout << "m: " << m << '\n';
+    std::cout << "d: " << d << '\n';
+    std::cout << "e: " << e << '\n';
+    std::cout << "x: " << x << '\n';
+    std::cout << "y: " << y << '\n';
+      new Pixel(x, y);
+      y--;
+      e -= m;
+      if (e >= 0.5) {
+        x++;
+        e--;
+      }
+    }
+
+
+
   }
 
 
@@ -183,6 +221,31 @@ void MyGlDraw(void)
   Pixel origin11 {0, 511};
   Pixel destiny11 {300, 400};
   drawLine(origin11, destiny11);
+
+  Pixel origin12 {0, 511};
+  Pixel destiny12 {100, 400};
+  drawLine(origin12, destiny12);
+
+  Pixel origin13 {0, 511};
+  Pixel destiny13 {100, 300};
+  drawLine(origin13, destiny13);
+
+
+  Pixel origin14 {0, 511};
+  Pixel destiny14 {50, 350};
+  drawLine(origin14, destiny14);
+
+  Pixel origin15 {0, 511};
+  Pixel destiny15 {50, 250};
+  drawLine(origin15, destiny15);
+
+  Pixel origin16 {512, 0};
+  Pixel destiny16 {512 - 40, 80};
+  drawLine(origin16, destiny16);
+
+  Pixel origin17 {512/2+5, 512/2-10};
+  Pixel destiny17 {512/2 + 20, 512/2-80};
+  drawLine(origin17, destiny17);
 
 
   //*************************************************************************
