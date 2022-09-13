@@ -2,9 +2,9 @@
 #include <GL/glu.h>
 #include <GL/glut.h>
 #include <iostream>
+#include "mygl.h"
 
 #include "definitions.h"
-
 GLuint tex;
 
 void (*DrawFunc)(void);

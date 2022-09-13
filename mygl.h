@@ -1,7 +1,13 @@
 #ifndef _MYGL_H_
 #define _MYGL_H_
 
-#include "definitions.h"
+#include "Pixel.h"
+#include "Triangle.h"
+
+void putPixel();
+void drawLine(Pixel &start, Pixel &end);
+void MyGlDraw(void);
+//drawTriangle
 
 //*****************************************************************************
 // Defina aqui as suas funções gráficas
