@@ -51,11 +51,11 @@ void Line::draw() {
   
   if (deltax == 0) {// Reta horientada na vertical
     for (int i = this->origin.getY(); i < this->destiny.getY(); i++) {
-      new Pixel(this->origin.getX(), i);
+      new Pixel(this->origin.getX(), i, this->r, this->g, this->b, this->a);
     }
   } else if (deltay == 0) {// Reta orientada na horizontal
     for (int i = this->origin.getX(); i < this->destiny.getX(); i++) {
-      new Pixel(i, this->origin.getY());
+      new Pixel(i, this->origin.getY(), this->r, this->g, this->b, this->a);
     }
   } else if (m > 0 && m < 1) {
     while (x <= this->destiny.getX()) {
@@ -68,7 +68,6 @@ void Line::draw() {
       }
     }
   } else if (m >= 1) {
-    std::cout << "sou m e sou maior q 1\n";
     m = deltax / deltay;
     d = this->origin.getX() - m * this->origin.getY();
     x = round(this->origin.getY() * m + d);
