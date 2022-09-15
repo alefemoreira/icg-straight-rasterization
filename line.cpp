@@ -44,18 +44,14 @@ void Line::draw() {
   float m =  deltay / deltax; // Coeficiente angular
   float d = this->origin.getY() - m * this->origin.getX(); // Coeficiente linear
 
-  // std::cout << m << '\n';
-
   // Coordenadas x e y iniciais do pixel
   int x = this->origin.getX();
   int y = round(this->origin.getX() * m + d); // y0 = x0.m + d
-  float e = m * x + d - y; // Erro
-  // std::cout << deltay << '\n';
+  float e = m * x + d - y; // calcula erro
   
   if (deltax == 0) {// Reta horientada na vertical
     for (int i = this->origin.getY(); i < this->destiny.getY(); i++) {
       new Pixel(this->origin.getX(), i);
-    // std::cout << this->origin.getX() << " " << i << '\n';
     }
   } else if (deltay == 0) {// Reta orientada na horizontal
     for (int i = this->origin.getX(); i < this->destiny.getX(); i++) {
@@ -89,11 +85,9 @@ void Line::draw() {
       }
     }
   }  else if(m < 0 && m > -1) {
-    // std::cout << m << '\n';
     x = this->origin.getX();
     y = round(x * m + d);
     e = (m * x + d - y );// mudança no calculo do erro(inversão do sinal de y)
-    // std::cout << e << '\n';
 
 
     while (x <= this->destiny.getX() && y >= this->destiny.getY()) {

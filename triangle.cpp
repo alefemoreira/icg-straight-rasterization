@@ -20,7 +20,7 @@ Triangle::Triangle(Pixel &v1, Pixel &v2, Pixel &v3, unsigned char r, unsigned ch
 }
 
 void Triangle::draw() {
-  Line line1 (this->v2, this->v1, this->r, this->g, this->b, this->a);
+  Line line1 (this->v1, this->v2, this->r, this->g, this->b, this->a);
   Line line2 (this->v1, this->v3, this->r, this->g, this->b, this->a);
   Line line3 (this->v2, this->v3, this->r, this->g, this->b, this->a);
   line1.draw();
