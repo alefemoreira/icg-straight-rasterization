@@ -11,7 +11,7 @@ Grupo:
 
 ## 1 Introdução 
 
-O presente trabalho tem como tema a rasterização de retas pelo algoritmo de Bresenham, usado para rasterizar retas com baixo custo computacional. Neste trabalho serão implementadas classes e funções para desenhar os seguintes objetos gráficos: ponto, reta e triangulo.
+O presente trabalho tem como tema a rasterização de retas pelo algoritmo de Bresenham, usado para rasterizar retas com baixo custo computacional. Neste trabalho serão implementadas classes e funções para desenhar os seguintes objetos gráficos: ponto, reta e triângulo.
 
 ## 2 Pixel
 
@@ -199,9 +199,9 @@ if (deltax == 0) {// Reta horientada na vertical
 }
 ```
 
-## 4 Triangulo
+## 4 Triângulo
 
-A abordagem que utilizamos no triangulo foi renderiza-lo a partir de 3 pixeis, o triangulo só será plotado na tela quando o método draw() for chamado, há um construtor padrão com 3 objetos da classe Pixel e outro com 3 pixeis e as cores em rgba, com 3 instâncias de Pixel é possível formar 3 retas(classe Line), como pode ser observado no método draw()
+A abordagem que utilizamos no triângulo foi renderiza-lo a partir de 3 pixeis, o triângulo só será plotado na tela quando o método draw() for chamado, há um construtor padrão com 3 objetos da classe Pixel e outro com 3 pixeis e as cores em rgba, com 3 instâncias de Pixel é possível formar 3 retas(classe Line), como pode ser observado no método draw()
 
 ```C++
 // triangle.cpp
@@ -235,10 +235,10 @@ void Triangle::draw() {
 }
 ```
 
-A Figura 3 mostra os três pixels que formam os vertices do triangulo, e como ele é contruído internamente. É desenha a linha do vertice 1 ao 2, depois do vertice 1 ao 3 e, por fim, do vértice 2 ao 3.
+A Figura 3 mostra os três pixels que formam os vertices do triângulo, e como ele é contruído internamente. É desenha a linha do vertice 1 ao 2, depois do vertice 1 ao 3 e, por fim, do vértice 2 ao 3.
 
-![Figura 3: Vertices do triangulo e o triangulo](https://github.com/alefemoreira/icg-straight-rasterization/blob/main/images/triangle-step-by-step.png)
-Figura 3: Vertices do triangulo e o triangulo
+![Figura 3: Vertices do triângulo e o triângulo](https://github.com/alefemoreira/icg-straight-rasterization/blob/main/images/triangle-step-by-step.png)
+Figura 3: Vertices do triângulo e o triângulo
 
 ## 5 Resultados e dificuldades encontradas
 
