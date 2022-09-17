@@ -1,7 +1,8 @@
 # Rasterização de Retas
 
-Professor: Maelso B. Pacheco
-Disciplina: Introdução à Computação Gráfica
+**Professor**: Maelso B. Pacheco
+
+**Disciplina**: Introdução à Computação Gráfica
 
 Grupo:
 
