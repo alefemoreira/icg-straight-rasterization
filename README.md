@@ -190,9 +190,9 @@ Utilizando o algoritmo de Bresenham, o programa foi capaz apenas de desenhar lin
 
 ## 6 - Referências
 
-https://www.javatpoint.com/computer-graphics-bresenhams-line-algorithm
-https://medium.com/@thiagoluiz.nunes/rasterization-algorithms-computer-graphics-b9c3600a7587
-http://www.univasf.edu.br/~jorge.cavalcanti/comput_graf04_prim_graficas2.pdf
+- https://www.javatpoint.com/computer-graphics-bresenhams-line-algorithm
+- https://medium.com/@thiagoluiz.nunes/rasterization-algorithms-computer-graphics-b9c3600a7587
+- http://www.univasf.edu.br/~jorge.cavalcanti/comput_graf04_prim_graficas2.pdf
 
 
 
