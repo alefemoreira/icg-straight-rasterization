@@ -15,7 +15,11 @@ O presente trabalho tem como tema a rasterização de retas pelo algoritmo de Br
 
 ## 2 -  Pixel
 
-Para o pixel foi criada uma classe chamada Pixel. Ao instanciar um objeto do tipo Pixel, um pixel é plotado na tela. O pixel é a unidade mais básica que vamos trabalhar, com ele acessamos o frame buffer para setar as coordenadas e as cores do pixel, a partir dele construiremos retas e o triângulo. No código abaixo é possível perceber que há 2 construtores para a classe, um deles só é necessário as coordenadas e a cor padrão é branca, já no segundo construtor além das coordenadas é preciso informar as cores em rgba(*red*, *green*, *blue*, *alpha*)
+Para o pixel foi criada uma classe chamada Pixel. Ao instanciar um objeto do tipo Pixel, um pixel é plotado na tela. O pixel é a unidade mais básica que vamos trabalhar, com ele acessamos o frame buffer para setar as coordenadas e as cores do pixel, a partir dele construiremos retas e o triângulo. No código abaixo é possível perceber que há 2 construtores para a classe, um deles só é necessário as coordenadas e a cor padrão é branca, já no segundo construtor além das coordenadas é preciso informar as cores em rgba(*red*, *green*, *blue*, *alpha*). Com isso, podemos desenhar pontos na tela como é mostrado na imagem abaixo.
+
+![image](https://user-images.githubusercontent.com/72952273/190861954-5fd1de19-fa43-4180-b20a-db2eb31e359b.png)
+
+Figura 1: Pixels desenhados a partir da função pixel
 
 ### 2.1 - pixel.cpp
 ```C++
