@@ -17,7 +17,7 @@ O presente trabalho tem como tema a rasterização de retas pelo algoritmo de Br
 
 Para o pixel foi criada uma classe chamada Pixel. Ao instanciar um objeto do tipo Pixel, um pixel é plotado na tela. O pixel é a unidade mais básica que vamos trabalhar, com ele acessamos o frame buffer para setar as coordenadas e as cores do pixel, a partir dele construiremos retas e o triângulo. No código abaixo é possível perceber que há 2 construtores para a classe, um deles só é necessário as coordenadas e a cor padrão é branca, já no segundo construtor além das coordenadas é preciso informar as cores em rgba(*red*, *green*, *blue*, *alpha*). Com isso, podemos desenhar pontos na tela como é mostrado na imagem abaixo.
 
-![image](https://user-images.githubusercontent.com/72952273/190861954-5fd1de19-fa43-4180-b20a-db2eb31e359b.png)
+![Figura 1: Pixels desenhados a partir da função pixel](https://user-images.githubusercontent.com/72952273/190861954-5fd1de19-fa43-4180-b20a-db2eb31e359b.png)
 
 Figura 1: Pixels desenhados a partir da função pixel
 
@@ -64,7 +64,7 @@ O algoritmo procura selecionar as localizações raster ideais que representam u
 
 Com a técnica foi possível desenhar em todos o quadrantes. Baseada nas diferenças de deltaX e deltaY, é possivel calcular o coeficiente angular da reta (m) como podemos ver logo abaixo:
 
-![image](https://user-images.githubusercontent.com/72952273/190861671-d8e63a17-6150-455c-ba35-0cad1b5a5040.png)
+![Figura 2: Demonstração dos quadrantes e inclinação](https://user-images.githubusercontent.com/72952273/190861671-d8e63a17-6150-455c-ba35-0cad1b5a5040.png)
 
 Figura 2: Demonstração dos quadrantes e inclinação 
 
@@ -235,7 +235,10 @@ void Triangle::draw() {
 }
 ```
 
-![Vertices do triangulo e o triangulo.]()
+A Figura 3 mostra os três pixels que formam os vertices do triangulo, e como ele é contruído internamente. É desenha a linha do vertice 1 ao 2, depois do vertice 1 ao 3 e, por fim, do vértice 2 ao 3.
+
+![Figura 3: Vertices do triangulo e o triangulo](https://github.com/alefemoreira/icg-straight-rasterization/blob/main/images/triangle-step-by-step.png)
+Figura 3: Vertices do triangulo e o triangulo
 
 ## 5 Resultados e dificuldades encontradas
 
@@ -245,9 +248,11 @@ Utilizando o algoritmo de Bresenham, o programa foi capaz apenas de desenhar lin
 
 ## 6 Referências
 
-- https://www.javatpoint.com/computer-graphics-bresenhams-line-algorithm
-- https://medium.com/@thiagoluiz.nunes/rasterization-algorithms-computer-graphics-b9c3600a7587
-- http://www.univasf.edu.br/~jorge.cavalcanti/comput_graf04_prim_graficas2.pdf
+[1] BRESENHAM'S Line Algorithm. **Javatpoint**. Disponível em: <https://www.javatpoint.com/computer-graphics-bresenhams-line-algorithm/>. Acesso em: 15 de set. de 2022.
+
+[2] LUIZ, Thiago. Rasterization Algorithms — Computer Graphics. **Medium**, 2017. Disponível em: <https://medium.com/@thiagoluiz.nunes/rasterization-algorithms-computer-graphics-b9c3600a7587/>. Acesso em: 15 de set. de 2022.
+
+[3] CAVALCANTI, Jorge. Computação Gráfica – 04. Apresentação em PDF. Disponível em: <http://www.univasf.edu.br/~jorge.cavalcanti/comput_graf04_prim_graficas2.pdf/>. Acesso em: 15 de set. de 2022.
 
 
 
