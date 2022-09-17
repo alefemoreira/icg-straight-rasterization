@@ -66,7 +66,7 @@ A técnica para foi possível desenhar em todos o quadrantes foi baseada nas dif
 
 ![image](https://user-images.githubusercontent.com/72952273/190861671-d8e63a17-6150-455c-ba35-0cad1b5a5040.png)
 
-Figura 1: Demonstração dos quadrantes e inclinação 
+Figura 2: Demonstração dos quadrantes e inclinação 
 
 
 Sabemos que o algoritmo de Bresenham encontra as coordenadas inteiras mais próximas da linha real, usando apenas matemática inteira. No entanto, pode haver valores de inclinação (m) para quando: 
