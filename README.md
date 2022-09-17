@@ -19,7 +19,7 @@ O presente trabalho tem como tema a rasterização de retas pelo algoritmo de Br
 Para o pixel foi criada uma classe chamada Pixel. Ao instanciar um objeto do tipo Pixel, um pixel é plotado na tela. O pixel é a unidade mais básica que vamos trabalhar, com ele acessamos o frame buffer para setar as coordenadas e as cores do pixel, a partir dele construiremos retas e o triângulo. No código abaixo é possível perceber que há 2 construtores para a classe, um deles só é necessário as coordenadas e a cor padrão é branca, já no segundo construtor além das coordenadas é preciso informar as cores em rgba(_red_, _green_, _blue_, _alpha_). Com isso, podemos desenhar pontos na tela como é mostrado na imagem abaixo.
 
 ![Figura 1: Pixels desenhados a partir da função pixel](https://user-images.githubusercontent.com/72952273/190861954-5fd1de19-fa43-4180-b20a-db2eb31e359b.png)
-Figura 1: Pixels desenhados a partir da função pixel
+                                                     Figura 1: Pixels desenhados a partir da função pixel
 
     // pixel.cpp
     #include "pixel.h"
@@ -65,7 +65,7 @@ O algoritmo procura selecionar as localizações raster ideais que representam u
 Com a técnica foi possível desenhar em todos o quadrantes. Baseada nas diferenças de deltaX e deltaY, é possivel calcular o coeficiente angular da reta (m) como podemos ver logo abaixo:
 
 ![Figura 2: Demonstração dos quadrantes e inclinação](https://user-images.githubusercontent.com/72952273/190861671-d8e63a17-6150-455c-ba35-0cad1b5a5040.png)
-Figura 2: Demonstração dos quadrantes e inclinação
+ Figura 2: Demonstração dos quadrantes e inclinação
 
 Sabemos que o algoritmo de Bresenham encontra as coordenadas inteiras mais próximas da linha real, usando apenas matemática inteira. No entanto, pode haver valores de inclinação (m) para quando:
 
@@ -225,7 +225,7 @@ A abordagem que utilizamos no triângulo foi renderiza-lo a partir de 3 pixeis, 
     line3.draw();
     }
 
-A Figura 3 mostra os três pixels que formam os vertices do triângulo, e como ele é contruído internamente. É desenha a linha do vertice 1 ao 2, depois do vertice 1 ao 3 e, por fim, do vértice 2 ao 3.
+A Figura 3 mostra os três pixels que formam os vértices do triângulo, e como ele é contruído internamente. É desenhado a linha do vertice 1 ao 2, depois do vertice 1 ao 3 e, por fim, do vértice 2 ao 3.
 
 ![Figura 3: Vertices do triângulo e o triângulo](https://github.com/alefemoreira/icg-straight-rasterization/blob/main/images/triangle-step-by-step.png?raw=true)
 Figura 3: Vertices do triângulo e o triângulo
@@ -234,13 +234,13 @@ Figura 3: Vertices do triângulo e o triângulo
 
 A aplicação ocorreu como esperado, sendo capaz de desenhar pixels, linhas e a formúlas geométricas. Nesse caso foi pedido para o que programa pudesse esboçar um triângulo atráves de um conjunto de pixels e retas, e assim foi realizado com êxito.
 
-Compreender o algoritmo de Bresenham e em sí foi o primeiro desafio apresentado durante a realização da atividade, seguido de conseguir desenhar em todos o quadrantes.
+Compreender o algoritmo de Bresenham em si foi o primeiro desafio apresentado durante a realização da atividade, seguido de conseguir desenhar em todos o quadrantes.
 
 Utilizando o algoritmo de Bresenham, o programa foi capaz apenas de desenhar linhas básicas. Para desenhar linhas suaves, deve-se utilizar um algoritmo diferente.
 
-Na reasterização da linha, um desafio foi tentar reaporveitar o código nos casos em que o deltaX e deltaY eram ambos negativos ou quando o deltaY era positivo e o deltaX era negativo. Para isso, ao instanciar um objeto Line, as condições anteriores eram verificadas e, se fossem verdadeiras, a origem e o destino eram invertidos, assim os casos de linha sempre obdecem aos casos da Figura 2.
+Na reasterização da linha, um desafio foi tentar reaproveitar o código nos casos em que o deltaX e deltaY eram ambos negativos ou quando o deltaY era positivo e o deltaX era negativo. Para isso, ao instanciar um objeto Line, as condições anteriores eram verificadas e, se fossem verdadeiras, a origem e o destino eram invertidos, assim os casos de linha sempre obdecem aos casos da Figura 2.
 
-A Figura 4 mostra o resultado final do trabalho. Na imagem é possivel ver retas ns quatro quadrantes e nos posiões intemeriária deles, além de um triângulo.
+A Figura 4 mostra o resultado final do trabalho. Na imagem é possivel ver retas nos quatro quadrantes e nas posições intermediárias deles, além de um triângulo.
 
 ![Figura 4: Retas e triângulo](https://github.com/alefemoreira/icg-straight-rasterization/blob/main/images/window-at-finish.png?raw=true)
 Figura 4: Retas e triângulo
