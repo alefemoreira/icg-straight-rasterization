@@ -57,7 +57,13 @@ int Pixel::getY() { return this->y; }
 ```
 ## 3 -  Reta
 
-O algoritmo procura selecionar as localizações raster ideais que representam uma linha reta. O algoritmo incrementa em uma unidade em x ou y dependendo da inclinação da linha. O incremento na outra variável é zero ou um e é determinado examinando a distância entre a linha real e a localização da grade mais próxima. A técnica para foi possível desenhar em todos o quadrantes foi baseada nas diferenças de deltaX e deltaY relacionado a 0.
+O algoritmo procura selecionar as localizações raster ideais que representam uma linha reta. O algoritmo incrementa em uma unidade em x ou y dependendo da inclinação da linha. O incremento na outra variável é zero ou um e é determinado examinando a distância entre a linha real e a localização da grade mais próxima. 
+A técnica para foi possível desenhar em todos o quadrantes foi baseada nas diferenças de deltaX e deltaY relacionado a 0, ou seja, a inclinação(m) como podemos ver logo abaixo.
+
+![image](https://user-images.githubusercontent.com/72952273/190861671-d8e63a17-6150-455c-ba35-0cad1b5a5040.png)
+Figura 1: Demonstração dos quadrantes
+
+
 Sabemos que o algoritmo de Bresenham encontra as coordenadas inteiras mais próximas da linha real, usando apenas matemática inteira. No entanto, pode haver valores de inclinação (m) para quando: 
 
 ### 3.1 - line.cpp
